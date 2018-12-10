@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loader.js</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Century Gothic';
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+    
+    #loadingMsg {
+      position: absolute;
+      text-align: center;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      font-size: 34px;
+      padding-top: 20%;
+      color: white;
+      background-color: #b06bff;
+    }
+    span {
+      font-weight: bold;
+      background-color: #7904ff;
+      border-radius: 10px;
+      padding: 5px 3px 5px 3px;
+    }
+    .hide {
+      display: none;
+    }
+    .container {
+      width: 100%;
+      padding: 20px;
+    }
+
+    img, audio, video {
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="loadingMsg">hmmh.. <span>Loader.js</span> is Loading the resources.</div>
+
+  <div class="container">
+    <p id="text"></p>
+  </div>
+
+  <script src="./dist/Loader.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
