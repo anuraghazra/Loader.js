@@ -1,5 +1,8 @@
 # Loader.js
 
+[![License: GPL v3](https://img.shields.io/github/license/anuraghazra/Loader.js.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+
 Lightweight Javascript Resource Pre-Loading library. 
 
 ## Basic Usage
