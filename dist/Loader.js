@@ -5,7 +5,7 @@
  */
 function LoaderJS() {
   this.assets = {};
-  
+
   this.whenReady = undefined;
   this.whileLoading = undefined;
 
@@ -22,12 +22,12 @@ function LoaderJS() {
  * @private
  * progression callback
  */
-LoaderJS.prototype._loading = function() {
+LoaderJS.prototype._loading = function () {
   if (this.whileLoading) {
     this.timer = window.setInterval(() => {
       if (this.resCount > 0) {
         this.whileLoading();
-      } else  {
+      } else {
         window.clearInterval(this.timer);
         this.timer = null;
       }
@@ -40,7 +40,7 @@ LoaderJS.prototype._loading = function() {
  * @method _increaseCount()
  * @private
  */
-LoaderJS.prototype._increaseCount = function() {
+LoaderJS.prototype._increaseCount = function () {
   this.resCount++;
 }
 /**
@@ -49,7 +49,7 @@ LoaderJS.prototype._increaseCount = function() {
  * @param {Response} res 
  * checks for valid response
  */
-LoaderJS.prototype._validateResponse = function(res) {
+LoaderJS.prototype._validateResponse = function (res) {
   if (!res.ok) {
     throw Error(res.statusText);
   }
@@ -64,7 +64,7 @@ LoaderJS.prototype._validateResponse = function(res) {
  */
 LoaderJS.prototype._checkReady = function () {
   if (this.resCount <= 0) this.loaded = true;
-  if(this.resCount <= 0 && this.whenReady) {
+  if (this.resCount <= 0 && this.whenReady) {
     this.whenReady();
   }
 }
@@ -87,14 +87,14 @@ LoaderJS.prototype._add = function (name, data) {
  * @param {String} file
  * loads text files
  */
-LoaderJS.prototype.loadString = function(name, file) {
+LoaderJS.prototype.loadString = function (name, file) {
   this._increaseCount();
   fetch(file)
     .then(res => this._validateResponse(res))
-    .then(res =>  res.text())
+    .then(res => res.text())
     .then(data => {
       this._add(name, data);
-      
+
       this._checkReady();
     })
     .catch(err => {
@@ -108,11 +108,11 @@ LoaderJS.prototype.loadString = function(name, file) {
  * @param {String} file
  * loads JSON files
  */
-LoaderJS.prototype.loadJSON = function(name, file) {
+LoaderJS.prototype.loadJSON = function (name, file) {
   this._increaseCount();
   fetch(file)
     .then(res => this._validateResponse(res))
-    .then(res =>  res.json())
+    .then(res => res.json())
     .then(data => {
       this._add(name, data);
 
@@ -129,7 +129,7 @@ LoaderJS.prototype.loadJSON = function(name, file) {
  * @param {String} file
  * loads image files as dom elements
  */
-LoaderJS.prototype.loadImage = function(name, file) {
+LoaderJS.prototype.loadImage = function (name, file) {
   this._increaseCount();
   let img = new Image();
   img.src = file;
@@ -143,6 +143,28 @@ LoaderJS.prototype.loadImage = function(name, file) {
   }
 }
 
+
+/**
+ * @method loadVideo()
+ * @param {String} name
+ * @param {String} file
+ * @param {Headers} headers 
+ * loads Video files
+ */
+LoaderJS.prototype.loadVideo = function (name, file) {
+  this._increaseCount();
+  let video = document.createElement('video');
+  video.autoplay = true;
+  video.muted = true;
+  video.loop = true;
+  video.src = file;
+  video.load();
+  
+  this._add(name, video);
+  this._checkReady();
+  video.play();
+}
+
 /**
  * @method loadMedia()
  * @param {String} name
@@ -150,7 +172,7 @@ LoaderJS.prototype.loadImage = function(name, file) {
  * @param {Headers} headers 
  * loads Audio, Video or media blobs
  */
-LoaderJS.prototype.loadMedia = function(name, file, headers) {
+LoaderJS.prototype.loadMedia = function (name, file, headers) {
   this._increaseCount();
   fetch(file, headers)
     // .then(res => this._validateResponse(res))

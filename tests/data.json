@@ -1,0 +1,87 @@
+{
+  "cod": "200",
+  "message": 0.0051,
+  "cnt": 40,
+  "list": [
+    {
+      "dt": 1545318000,
+      "main": {
+        "temp": 282.74,
+        "temp_min": 282.167,
+        "temp_max": 282.74,
+        "pressure": 1012.86,
+        "sea_level": 1020.54,
+        "grnd_level": 1012.86,
+        "humidity": 84,
+        "temp_kf": 0.57
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "clouds": {
+        "all": 44
+      },
+      "wind": {
+        "speed": 5.67,
+        "deg": 243.503
+      },
+      "rain": {
+        "3h": 0.25
+      },
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2018-12-20 15:00:00"
+    },
+    {
+      "dt": 1545739200,
+      "main": {
+        "temp": 282.628,
+        "temp_min": 282.628,
+        "temp_max": 282.628,
+        "pressure": 1037.58,
+        "sea_level": 1045.29,
+        "grnd_level": 1037.58,
+        "humidity": 100,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "clouds": {
+        "all": 76
+      },
+      "wind": {
+        "speed": 2.02,
+        "deg": 212.503
+      },
+      "rain": {
+        "3h": 0.13
+      },
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2018-12-25 12:00:00"
+    }
+  ],
+  "city": {
+    "id": 2643743,
+    "name": "London",
+    "coord": {
+      "lat": 51.5073,
+      "lon": -0.1277
+    },
+    "country": "GB",
+    "population": 1000000
+  }
+}
